@@ -15,6 +15,8 @@ import FlashMessages from './components/FlashMessages'
 import HomeLoggedIn from './components/HomeLoggedIn'
 import HomeLoggedOut from './components/HomeLoggedOut'
 import ComplaintForm from './components/ComplaintForm'
+import ComplaintView from './components/ComplaintView'
+import AdminComplaintReview from './components/AdminComplaintReview'
 
 function ComplaintManagementPortal() {
     const initialState = {
@@ -41,11 +43,17 @@ function ComplaintManagementPortal() {
                         <Route path="/" exact>
                             {cookie.Username ? <HomeLoggedIn /> : <HomeLoggedOut />}
                         </Route>
-                        <Route path="/register">
+                        <Route path="/register" exact>
                             <Register/>
                         </Route>
-                        <Route path="/complaint">
+                        <Route path="/complaint" exact>
                             <ComplaintForm />
+                        </Route>
+                        <Route path="/complaint-view">
+                            <ComplaintView />
+                        </Route>
+                        <Route path="/complaint-handle">
+                            <AdminComplaintReview />
                         </Route>
                     </Switch>
                     </Container>

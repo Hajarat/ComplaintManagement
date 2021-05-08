@@ -32,6 +32,10 @@ function Register() {
             appDispatch({type: "flashMessage", value: "Your password must be at least 8 characters."})
             return false
         }
+        if (privelege === "admin") {
+            appDispatch({type: "flashMessage", value: "Admin registration not yet supported."})
+            return false
+        }
         return true
     }
 
